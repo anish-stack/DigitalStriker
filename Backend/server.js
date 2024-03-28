@@ -11,7 +11,9 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extends:true}))
 
-
+app.get('/',(req,res)=>{
+    res.send("Hello I Am From Digitak-Striker")
+})
 app.use('/api', productRoutes);
 
 app.listen(PORT,()=>{
