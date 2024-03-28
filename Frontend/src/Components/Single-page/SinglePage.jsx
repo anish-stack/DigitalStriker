@@ -18,7 +18,7 @@ function SinglePage() {
     useEffect(()=>{
         const fectchdata = async ()=>{
             try {
-                const response = await axios.get(`https://shrm-backend-git-io.onrender.com/api/singleProduct/${id}`)
+                const response = await axios.get(`https://www.api.digitalstriker.in/api/singleProduct/${id}`)
                 console.log(response.data.data)
                 setAddProduct(response.data.data);
             } catch (error) {

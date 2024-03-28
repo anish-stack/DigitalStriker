@@ -35,7 +35,7 @@ function Auth() {
         e.preventDefault()
         // console.log(addProductData)
         try {
-            const response = await axios.post('https://shrm-backend-git-io.onrender.com/api/createProducts', addProductData)
+            const response = await axios.post('https://www.api.digitalstriker.in/api/createProducts', addProductData)
             console.log('add product api called', response)
             toast.success("Product added successfully")
         } catch (error) {
@@ -53,7 +53,7 @@ function Auth() {
     useEffect(() => {
         const getallproduct = async () => {
             try {
-                const response = await axios.get('https://shrm-backend-git-io.onrender.com/api/allproduct')
+                const response = await axios.get('https://www.api.digitalstriker.in/api/allproduct')
                 console.log(response.data.data)
                 setAllProduct(response.data.data);
             } catch (error) {
@@ -70,7 +70,7 @@ function Auth() {
 
     const handleDelete = async (id) => {
         try {
-         const res= await axios.delete(`https://shrm-backend-git-io.onrender.com/api/deleteProduct/${id}`);
+         const res= await axios.delete(`https://www.api.digitalstriker.in/api/deleteProduct/${id}`);
             console.log(res)
             toast.success("Product deleted successfully");
             // Update the product list after deletion
