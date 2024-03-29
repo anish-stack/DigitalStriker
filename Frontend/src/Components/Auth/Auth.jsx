@@ -35,7 +35,7 @@ function Auth() {
         e.preventDefault()
         // console.log(addProductData)
         try {
-            const response = await axios.post('https://api.digitalstriker.in/createProducts', addProductData)
+            const response = await axios.post('https://api.digitalstriker.in/api/createProducts', addProductData)
             console.log('add product api called', response)
             toast.success("Product added successfully")
         } catch (error) {
@@ -53,7 +53,7 @@ function Auth() {
     useEffect(() => {
         const getallproduct = async () => {
             try {
-                const response = await axios.get('https://api.digitalstriker.in/allproduct')
+                const response = await axios.get('https://api.digitalstriker.in/api/allproduct')
                 console.log(response.data.data)
                 setAllProduct(response.data.data);
             } catch (error) {
@@ -70,7 +70,7 @@ function Auth() {
 
     const handleDelete = async (id) => {
         try {
-         const res= await axios.delete(`https://api.digitalstriker.in/deleteProduct/${id}`);
+         const res= await axios.delete(`https://api.digitalstriker.in/api/deleteProduct/${id}`);
             console.log(res)
             toast.success("Product deleted successfully");
             // Update the product list after deletion
@@ -93,7 +93,7 @@ function Auth() {
     useEffect(()=>{
         const fetchEmail = async () => {
             try {
-                const response = await axios.get('https://api.digitalstriker.in/getcontact')
+                const response = await axios.get('https://api.digitalstriker.in/api/getcontact')
                 setEmailData(response.data)
                 console.log(response.data)
             } catch (error) {
@@ -107,7 +107,7 @@ function Auth() {
 
     const handleMailDelete = async (id) => {
         try {
-         const res = await axios.delete(`https://api.digitalstriker.in/delete-mail/${id}`);
+         const res = await axios.delete(`https://api.digitalstriker.in/api/delete-mail/${id}`);
             console.log(res)
             toast.success("Email deleted successfully");
             // Update the product list after deletion
