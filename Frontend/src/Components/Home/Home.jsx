@@ -5,6 +5,7 @@ import ServicesHomePage from '../ServicesHomePage/ServicesHomePage'
 import Mission from '../Mission/Mission'
 import ContactHome from '../contactHome/ContactHome'
 import OurClient from '../OurClient/OurClient'
+import Whatasaap from '../Whatsapp/Whatasaap'
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <Mission />
       <ContactHome />
       <OurClient />
+      <Whatasaap/>
     </>
   )
 }

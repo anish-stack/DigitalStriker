@@ -83,15 +83,19 @@
     border-radius: 10px;
 }
 
-.auth-section .container .down .main-container form .mid-field{
+.auth-section .container .down .main-container form .mid-field {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.auth-section .container .down .main-container form .mid-field .category{
+.auth-section .container .down .main-container form .mid-field .category {
     width: 100%;
     height: 40px;
+}
+
+.auth-section .container .down .main-container form .mid-field .category option {
+    width: 100%;
 }
 
 .auth-section .container .down .main-container form .mid-field label {
@@ -129,25 +133,25 @@
     height: 100%;
 }
 
-.auth-section .container .down .main-container form .btns{
+.auth-section .container .down .main-container form .btns {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
-.auth-section .container .down .main-container form .btns button{
+.auth-section .container .down .main-container form .btns button {
     padding: 7px 14px;
     cursor: pointer;
 }
 
-.auth-section .container .down .main-container form .btns button:nth-child(1){
+.auth-section .container .down .main-container form .btns button:nth-child(1) {
     background-color: rgb(255, 43, 43);
     border: none;
     color: white;
 }
 
-.auth-section .container .down .main-container form .btns button:nth-child(2){
+.auth-section .container .down .main-container form .btns button:nth-child(2) {
     background-color: rgb(43, 255, 47);
     border: none;
     color: white;
@@ -157,28 +161,28 @@
 
     .auth-section .container .down .main-container form .up-field {
         flex-direction: column;
-    
+
     }
 
     .auth-section .container .down .main-container form .up-field .same-field {
         width: 100%;
     }
-    
+
 }
 
 @media (max-width:600px) {
 
-    .auth-section .container{
-        padding: 40px 17px;
+    .auth-section .container {
+        padding: 40px 0px;
     }
 
-    
+
 }
 
 
 
 
-.auth-section .container .down .main-container .main-product-box{
+.auth-section .container .down .main-container .main-product-box {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,7 +191,7 @@
     border-radius: 10px;
 }
 
-.auth-section .container .down .main-container .main-product-box .col{
+.auth-section .container .down .main-container .main-product-box .col {
     width: 31%;
     background-color: white;
     display: flex;
@@ -196,59 +200,59 @@
     overflow: hidden;
 }
 
-.auth-section .container .down .main-container .main-product-box .col .des-box{
+.auth-section .container .down .main-container .main-product-box .col .des-box {
     display: flex;
     flex-direction: column;
     gap: 7px;
     padding: 15px 0px;
 }
 
-.auth-section .container .down .main-container .main-product-box .col .img{
+.auth-section .container .down .main-container .main-product-box .col .img {
     width: 100%;
     height: 240px;
 }
 
-.auth-section .container .down .main-container .main-product-box .col .img img{
+.auth-section .container .down .main-container .main-product-box .col .img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.auth-section .container .down .main-container .main-product-box .col .detail{
+.auth-section .container .down .main-container .main-product-box .col .detail {
     padding: 0px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.auth-section .container .down .main-container .main-product-box .col .detail h4{
+.auth-section .container .down .main-container .main-product-box .col .detail h4 {
     font-size: 14px;
 }
 
-.auth-section .container .down .main-container .main-product-box .col .detail p{
+.auth-section .container .down .main-container .main-product-box .col .detail p {
     font-size: 14px;
 }
 
-.auth-section .container .down .main-container .main-product-box .col .des{
+.auth-section .container .down .main-container .main-product-box .col .des {
     padding: 0px 10px;
 }
 
-.auth-section .container .down .main-container .main-product-box .col .des p{
-    font-size: ;
+.auth-section .container .down .main-container .main-product-box .col .des p {
+    font-size: 16px;
     text-align: center;
     overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 90%;
 }
 
-.auth-section .container .down .main-container .main-product-box .delete-btn{
+.auth-section .container .down .main-container .main-product-box .delete-btn {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.auth-section .container .down .main-container .main-product-box .delete-btn button{
+.auth-section .container .down .main-container .main-product-box .delete-btn button {
     background-color: rgb(254, 89, 89);
     color: white;
     border: none;
@@ -256,16 +260,63 @@
     font-size: 15px;
 }
 
+.auth-section .container .down .main-container .table-container {
+    overflow-x: auto;
+}
+
+.auth-section .container .down .main-container .table-container table {
+    min-width: 200px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.auth-section .container .down .main-container .table-container th,
+td {
+    border: 1px solid black;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.auth-section .container .down .main-container .table-container th {
+    background-color: #f2f2f2;
+}
+
+.auth-section .container .down .main-container .table-container table tbody tr td button{
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px;
+}
+
+/* Responsive styling */
+@media only screen and (max-width: 768px) {
+
+    .auth-section .container .down .main-container .table-container th,
+    td {
+        padding: 8px;
+    }
+}
+
+/* Beautiful design */
+.auth-section .container .down .main-container .table-container tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.auth-section .container .down .main-container .table-container tbody tr:hover {
+    background-color: #ddd;
+}
+
 @media (max-width:945px) {
-    .auth-section .container .down .main-container .main-product-box .col{
+    .auth-section .container .down .main-container .main-product-box .col {
         width: 48%;
     }
-    
+
 }
 
 @media (max-width:830px) {
-    .auth-section .container .down .main-container .main-product-box .col{
+    .auth-section .container .down .main-container .main-product-box .col {
         width: 100%;
     }
-    
+
 }

@@ -111,7 +111,7 @@
     margin-top: 12px;
 }
 
-.form-section .right-side .button input[type="button"] {
+.form-section .right-side .button .btn-style {
     color: #fff;
     font-size: 18px;
     outline: none;

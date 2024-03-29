@@ -35,7 +35,7 @@ function Auth() {
         e.preventDefault()
         // console.log(addProductData)
         try {
-            const response = await axios.post('https://www.api.digitalstriker.in/api/createProducts', addProductData)
+            const response = await axios.post('https://api.digitalstriker.in/createProducts', addProductData)
             console.log('add product api called', response)
             toast.success("Product added successfully")
         } catch (error) {
@@ -53,7 +53,7 @@ function Auth() {
     useEffect(() => {
         const getallproduct = async () => {
             try {
-                const response = await axios.get('https://www.api.digitalstriker.in/api/allproduct')
+                const response = await axios.get('https://api.digitalstriker.in/allproduct')
                 console.log(response.data.data)
                 setAllProduct(response.data.data);
             } catch (error) {
@@ -70,7 +70,7 @@ function Auth() {
 
     const handleDelete = async (id) => {
         try {
-         const res= await axios.delete(`https://www.api.digitalstriker.in/api/deleteProduct/${id}`);
+         const res= await axios.delete(`https://api.digitalstriker.in/deleteProduct/${id}`);
             console.log(res)
             toast.success("Product deleted successfully");
             // Update the product list after deletion
@@ -86,6 +86,39 @@ function Auth() {
    
     // delete one product api fetch end from here 
 
+    // contact detail fetch api 
+
+    const [EmailData , setEmailData] = useState([])
+
+    useEffect(()=>{
+        const fetchEmail = async () => {
+            try {
+                const response = await axios.get('https://api.digitalstriker.in/getcontact')
+                setEmailData(response.data)
+                console.log(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchEmail()
+    },[])
+
+    // delete mail 
+
+    const handleMailDelete = async (id) => {
+        try {
+         const res = await axios.delete(`https://api.digitalstriker.in/delete-mail/${id}`);
+            console.log(res)
+            toast.success("Email deleted successfully");
+            // Update the product list after deletion
+            const updatedEmail = EmailData.filter(Email => Email.id !== id);
+            setEmailData(updatedEmail);
+        } catch (error) {
+            console.error('Error deleting Email:', error);
+            toast.error("Something went wrong!" + error);
+        }
+    };
+
     return (
         <section className='auth-section'>
             <div className="container">
@@ -96,6 +129,7 @@ function Auth() {
                     <div className="buttons">
                         <button onClick={() => setIsActive('Add-product')}>Add Product</button>
                         <button onClick={() => setIsActive('All-product')}>All Product</button>
+                        <button onClick={() => setIsActive('All-Email')}>Email</button>
                     </div>
                     <div className="main-container">
 
@@ -155,8 +189,35 @@ function Auth() {
                             }
 
                         </div>
+                            ) : isActive === "All-Email" ? (
+                                <div className='table-container'>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Phone No</th>
+                                                <th>Message</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                EmailData && EmailData.map((item,index)=>(
+                                                <tr key={index}>
+                                                    <td>{item.Name}</td>
+                                                    <td>{item.Email}</td>
+                                                    <td>{item.PhoneNumber}</td>
+                                                    <td>{item.Message}</td>
+                                                    <td><button onClick={() => handleMailDelete(item._id)}>Delete</button></td>
+                                                </tr>
+                                                ))
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             ) : (
-                                <p>No Found</p>
+                                <p>Page Not Found</p>
                             )
                         }
 

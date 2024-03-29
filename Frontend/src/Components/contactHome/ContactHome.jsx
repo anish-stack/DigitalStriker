@@ -1,7 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './contact.css'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 function ContactHome() {
+
+    const [formdata,setformdata] = useState({
+        Name : '',
+        Email : '' ,
+        PhoneNumber : '',
+        Message : ''
+    })
+
+    const handlechange = (e) =>{
+        const { name, value } = e.target;
+        setformdata((prevData) => ({
+            ...prevData,
+           [name]: value,
+        }))
+    }
+
+    const formdatafetch = async(e) =>{
+        e.preventDefault()
+        try {
+            const response = await axios.post('https://api.digitalstriker.in/createcontact',formdata);
+            toast.success('Message Sent Successfully!')
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+            toast.error("Error Occured")
+        }
+    }
+
     return (
         <div className='form-section'>
             <div className="container">
@@ -22,25 +52,28 @@ function ContactHome() {
                         <div className="email details">
                             <i className="fas fa-envelope"></i>
                             <div className="topic">Email</div>
-                            <div className="text-one">baijnath.p@digitalstriker.in</div>
-                            <div className="text-one">deepak.a@digitalstriker.in</div>
+                            <div className="text-one">baijnath@digitalstriker.in</div>
+                            <div className="text-one">deepak@digitalstriker.in</div>
                         </div>
                     </div>
                     <div className="right-side">
                         <div className="topic-text">Send us a message</div>
                         <p>If you have any work from me or any types of quries related to Our Product, you can send me message from here. It's my pleasure to help you.</p>
-                        <form action="#">
+                        <form onSubmit={formdatafetch} action="#">
                             <div className="input-box">
-                                <input type="text" placeholder="Enter your name" />
+                            <input type="text" value={formdata.Name} placeholder='Name' name='Name' onChange={handlechange} required />
                             </div>
                             <div className="input-box">
-                                <input type="text" placeholder="Enter your email" />
+                            <input type="email" placeholder='Email' value={formdata.Email} name='Email' onChange={handlechange} required />
+                            </div>
+                            <div className="input-box">
+                            <input type="text" placeholder='Phone No.' value={formdata.PhoneNumber} name='PhoneNumber' onChange={handlechange} required />
                             </div>
                             <div className="input-box message-box">
-                                <textarea placeholder='Enter your message' />
+                            <textarea placeholder='Message' value={formdata.Message} name='Message' onChange={handlechange} required></textarea>
                             </div>
                             <div className="button">
-                                <input type="button" value="Send Now" />
+                                <button className='btn-style' type='submit'>Submit</button>
                             </div>
                         </form>
                     </div>
