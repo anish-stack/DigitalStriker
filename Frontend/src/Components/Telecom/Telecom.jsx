@@ -12,7 +12,7 @@ function Telecom() {
     useEffect(()=>{
         const fetchdata = async()=>{
             try {
-                const response = await axios.get('https://api.digitalstriker.in/allproduct')
+                const response = await axios.get('https://api.digitalstriker.in/api/allproduct')
                 console.log(response.data.data)
                 setAllProduct(response.data.data);
             } catch (error) {

@@ -23,7 +23,7 @@ function ContactHome() {
     const formdatafetch = async(e) =>{
         e.preventDefault()
         try {
-            const response = await axios.post('https://api.digitalstriker.in/createcontact',formdata);
+            const response = await axios.post('https://api.digitalstriker.in/api/createcontact',formdata);
             toast.success('Message Sent Successfully!')
             console.log(response)
         } catch (error) {

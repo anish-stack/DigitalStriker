@@ -18,7 +18,7 @@ function SinglePage() {
     useEffect(()=>{
         const fectchdata = async ()=>{
             try {
-                const response = await axios.get(`https://api.digitalstriker.in/singleProduct/${id}`)
+                const response = await axios.get(`https://api.digitalstriker.in/api/singleProduct/${id}`)
                 console.log(response.data.data)
                 setAddProduct(response.data.data);
             } catch (error) {
